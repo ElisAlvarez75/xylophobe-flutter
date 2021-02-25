@@ -1,5 +1,5 @@
-import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() => runApp(XylophoneApp());
 
@@ -9,12 +9,12 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$sound.wav');
   }
 
-  Widget buildKey() {
-    Expanded(
+  Expanded buildKey(color, number) {
+    return Expanded(
       child: FlatButton(
-        color: Colors.red,
+        color: Colors.$color,
         onPressed: () {
-          playSound(1);
+          playSound(number);
         },
       ),
     );
@@ -29,13 +29,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-             buildKey();
-            buildKey();
-          buildKey();
-        buildKey();
-    buildKey();
-    buildKey();
-    buildKey();
+             buildKey('red', 1),
+            buildKey('orange', 2),
+          buildKey('yellow', 3),
+        buildKey('green', 4),
+    buildKey('tale', 5),
+    buildKey('blue', 6),
+    buildKey('purple', 7),
             ],
           ),
         ),
